@@ -1,21 +1,32 @@
 <?php include("header.php");
-if (empty($_POST["userinput"])){
-    $_error = "Please enter an integer.";
-$_SESSION["game"]--;
-} else {
-    $_error = "";
-}
-
 if ($_SESSION["answer"] == $_POST["userinput"]) {
 $_SESSION["score"]++;
 $_SESSION["game"]++;
 } else if ($_SESSION["answer"] != $_POST["userinput"]) {
 $_SESSION["game"]++;
 }
+
+ $_SESSION["email"] = $_POST['email'];
+ $_SESSION["password"] = $_POST['password'];
+ if ($_SESSION["username"] != "a@a.a" && $_SESSION["password"] !="a" ){
+ 		$_SESSION["loginerror"] = "Invalid email-password combination";
+ 	    header("Location: index.php");
+ 	}
+ if ($_SESSION["username"] != "a@a.a" && $_SESSION["password"] !="a" ){
+ 		$_SESSION["loginerror"] = "Invalid email-password combination";
+ 	    header("Location: index.php");
+ 	}?> 
+	<p>Welcome, enter the answers!</p>
+		 <a href="logout.php" type="submit" class="btn btn-primary pull-right">Log Out</a>
+	</div>
+	<div>
+	<h2 class="text-danger">What is....</h2>
+	<h3>
+	 <?php 
 	 	$_num1 = rand(0,20); 
 	 	$_num2 = rand(0,20);
-        $_num3 = rand(0,1);
-	 	$_SESSION["result"] = $_SESSION["answer"];
+	 	$_num3 = rand(0,1); 
+        
         if ($_num3 == 0) {
             $_SESSION["answer"] = $_num1 + $_num2;
             $_operation = "+";     
@@ -24,27 +35,9 @@ $_SESSION["game"]++;
             $_SESSION["answer"] = $_num1 - $_num2;
             $_operation = "-";
         }
-?>
-	<p>Welcome, enter the answers!</p>
-			 <a href="logout.php" type="submit" class="btn btn-primary pull-right">Log Out</a>
-
-	</div>
-	<div>
-		<h2 class="text-primary">
-	 <?php
-	 echo "Answer: " . $_SESSION["result"] . "\t";   
-	 echo "Your Answer: " .$_POST["userinput"];
-	  ?>
-	  </h2>
-	<h2 class="text-danger">
-        
-        What is....</h2>
-        <br/>
-        <em><?php echo $_error; ?></em>
-	<h3>
-	 <?php 
-	 	echo $_num1 . " ";
-	 	echo $_operation . " ";
+	 	$_SESSION["score"] = 0; 
+		$_SESSION["game"] = 0;
+	 	echo $_num1 . $_operation;
 	 	echo $_num2;
 	 ?>
 	 </h3>
@@ -57,8 +50,6 @@ $_SESSION["game"]++;
 	 <?php
 	 	echo  "\n" . $_SESSION["score"] . "/" . $_SESSION["game"];
 	 ?>
-	</div>
-	</h2>
 	</div>
 		</body>
 </html>
