@@ -22,3 +22,4 @@
 			</form>
 	</body>
 </html>
+<?php session_destroy(); ?>
