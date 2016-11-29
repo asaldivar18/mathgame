@@ -1,21 +1,13 @@
 <?php include("header.php");
 if (empty($_POST["userinput"]) || !is_numeric($_POST["userinput"]) ){
     $_error = "Please enter an integer.";
-$_SESSION["game"]--;
-} else {
-    $_error = "";
-    if ($_SESSION["answer"] == $_POST["userinput"]) {
-    	$_error = "Correct!"
-} else if ($_SESSION["answer"] != $_POST["userinput"]) {
-		$_error = "Try again...."
-}
-}
-
-if ($_SESSION["answer"] == $_POST["userinput"]) {
+} else if ($_SESSION["answer"] == $_POST["userinput"]) {
 $_SESSION["score"]++;
 $_SESSION["game"]++;
+$_error = "Correct!";
 } else if ($_SESSION["answer"] != $_POST["userinput"]) {
 $_SESSION["game"]++;
+$_error = "Try again....";
 }
 	 	$_num1 = rand(0,20); 
 	 	$_num2 = rand(0,20);
