@@ -33,11 +33,11 @@ $_error = "Try again....";
 	 echo "Your Answer: " .$_POST["userinput"];
 	  ?>
 	  </h2>
+        <em><?php echo $_error; ?></em>
+	<br/>
 	<h2 class="text-danger">
         
         What is....</h2>
-        <br/>
-        <em><?php echo $_error; ?></em>
 	<h3>
 	 <?php 
 	 	echo $_num1 . " ";
