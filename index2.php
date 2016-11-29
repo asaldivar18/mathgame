@@ -1,25 +1,24 @@
 <?php include("header.php");
-if ($_SESSION["answer"] == $_POST["userinput"]) {
-$_SESSION["score"]++;
-$_SESSION["game"]++;
-} else if ($_SESSION["answer"] != $_POST["userinput"]) {
-$_SESSION["game"]++;
-}
-
- $_SESSION["email"] = $_POST['email'];
- $_SESSION["password"] = $_POST['password'];
- if ($_SESSION["username"] != "a@a.a" && $_SESSION["password"] !="a" ){
+    if ($_SESSION["answer"] == $_POST["userinput"]) {
+        $_SESSION["score"]++;
+        $_SESSION["game"]++;
+    } else if ($_SESSION["answer"] != $_POST["userinput"]) {
+        $_SESSION["game"]++;
+    }
+    $_SESSION["email"] = $_POST['email'];
+    $_SESSION["password"] = $_POST['password'];
+    if ($_SESSION["username"] != "a@a.a" && $_SESSION["password"] !="aaa" ){
  		$_SESSION["loginerror"] = "Invalid email-password combination";
  	    header("Location: index.php");
  	}
- if ($_SESSION["username"] != "a@a.a" && $_SESSION["password"] !="a" ){
+    if ($_SESSION["username"] != "a@a.a" && $_SESSION["password"] !="aaa" ){
  		$_SESSION["loginerror"] = "Invalid email-password combination";
  	    header("Location: index.php");
  	}?> 
-	<p>Welcome, enter the answers!</p>
-		 <a href="logout.php" type="submit" class="btn btn-primary pull-right">Log Out</a>
-	</div>
-	<div>
+<p>Welcome, enter the answers!</p>
+<a href="logout.php" type="submit" class="btn btn-primary pull-right">Log Out</a>
+</div>
+<div>
 	<h2 class="text-danger">What is....</h2>
 	<h3>
 	 <?php 
@@ -41,15 +40,15 @@ $_SESSION["game"]++;
 	 	echo $_num2;
 	 ?>
 	 </h3>
-	 <form action="answer.php" method="post" role=form>
-	 <input type="text" class="form-control" id="userinput" name="userinput" placeholder="???">
-	 <button type="submit" class="btn btn-primary">Check answer</button>
+    <form action="answer.php" method="post" role=form>
+        <input type="text" class="form-control" id="userinput" name="userinput" placeholder="???">
+        <button type="submit" class="btn btn-primary">Check answer</button>
 	 </form>
-	 <h2 class="text-primary">
-	 Your Score
-	 <?php
+	 <h2 class="text-primary">Your Score
+	   <?php
 	 	echo  "\n" . $_SESSION["score"] . "/" . $_SESSION["game"];
-	 ?>
+	   ?>
+    </h2>
 	</div>
 		</body>
 </html>

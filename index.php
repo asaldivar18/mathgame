@@ -1,5 +1,6 @@
 <?php include("header.php"); session_destroy(); ?>
 				<p>Please log on to play </p>
+    <a type="submit" class="btn btn-primary pull-right">Log Out</a>
 			</div>
 			<form action="index2.php" method="post" role="form">
 				<div class="form-group">
