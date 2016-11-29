@@ -1,9 +1,14 @@
 <?php include("header.php");
-if (empty($_POST["userinput"])){
+if (empty($_POST["userinput"]) || !is_numeric($_POST["userinput"]) ){
     $_error = "Please enter an integer.";
 $_SESSION["game"]--;
 } else {
     $_error = "";
+    if ($_SESSION["answer"] == $_POST["userinput"]) {
+    	$_error = "Correct!"
+} else if ($_SESSION["answer"] != $_POST["userinput"]) {
+		$_error = "Try again...."
+}
 }
 
 if ($_SESSION["answer"] == $_POST["userinput"]) {
